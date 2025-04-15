@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ML Prediction</title>
+</head>
+<body>
+  <h1>ML Model UI</h1>
+  <form method="POST" action="/predict">
+    <label>Feature 1:</label><input type="text" name="f1"><br>
+    <label>Feature 2:</label><input type="text" name="f2"><br>
+    <label>Feature 3:</label><input type="text" name="f3"><br>
+    <label>Feature 4:</label><input type="text" name="f4"><br>
+    <input type="submit" value="Predict">
+  </form>
+
+  {% if prediction is defined %}
+    <h2>Prediction: {{ prediction }}</h2>
+  {% endif %}
+</body>
+</html>

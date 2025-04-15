@@ -1,22 +1,23 @@
-from flask import Flask, request, jsonify
-import pickle
+from flask import Flask, request, jsonify, render_template
+import joblib
 
 app = Flask(__name__)
+model = joblib.load("model.pkl")
 
-# Load the model
-with open("model.pkl", "rb") as f:
-    model = pickle.load(f)
-
-@app.route("/")
-def index():
-    return "ML Model is live!"
+@app.route('/')
+def home():
+    return render_template("index.html")
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.get_json()
-    features = data.get("features")
+    features = [
+        float(request.form["f1"]),
+        float(request.form["f2"]),
+        float(request.form["f3"]),
+        float(request.form["f4"])
+    ]
     prediction = model.predict([features])
-    return jsonify({"prediction": int(prediction[0])})
+    return render_template("index.html", prediction=int(prediction[0]))
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
