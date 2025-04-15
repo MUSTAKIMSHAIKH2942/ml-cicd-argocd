@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ml_app-service
+  name: ml-app-service
 spec:
   selector:
-    app: ml_app
+    app: ml-app
   ports:
     - protocol: TCP
       port: 80
