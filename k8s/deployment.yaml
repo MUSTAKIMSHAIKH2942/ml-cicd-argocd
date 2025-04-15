@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: ml-app
-        image: your-dockerhub-bytesbuddy/ml-cicd-app:latest
+        image: bytesbuddy/ml-cicd-app:latest
+
         ports:
         - containerPort: 5000
