@@ -8,14 +8,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ml-app
+      app: ml_app
   template:
     metadata:
       labels:
-        app: ml-app
+        app: ml_app
     spec:
       containers:
-      - name: ml-app
+      - name: ml_app
         image: your-dockerhub-bytesbuddy/ml-cicd-app:latest
         ports:
         - containerPort: 5000
